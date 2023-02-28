@@ -1,5 +1,3 @@
-import exp from "constants";
-
 export type BuildMode = 'production' | 'development';
 
 export interface BuildEnv {
@@ -10,7 +8,8 @@ export interface BuildEnv {
 export interface BuildPaths {
     entry: string,
     build: string,
-    html: string
+    html: string,
+    src: string,
 }
 
 export interface BuildOptions {
