@@ -11,7 +11,7 @@ export const ErrorPage = ({ className }: ErrorPageProps) => {
     const { t } = useTranslation('translation');
 
     const reloadPage = () => {
-        location.reload();
+        window.location.reload();
     };
 
     return (
