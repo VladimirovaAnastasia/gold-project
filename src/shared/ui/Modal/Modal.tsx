@@ -33,7 +33,7 @@ export const Modal = (props: ModalProps) => {
     const closeHandler = useCallback(() => {
         setIsClosing(true);
         timerRef.current = setTimeout(() => {
-            onClose && onClose();
+            onClose();
             setIsClosing(false);
         }, ANIMATION_DELAY);
     }, [onClose]);
