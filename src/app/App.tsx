@@ -1,19 +1,29 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { AppRouter } from 'app/providers/router';
 import { NavBar } from 'widgets/NavBar';
 import { SideBar } from 'widgets/SideBar';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/User';
 
-const App = () => (
-    <div className={classNames('app', {}, [])}>
-        <Suspense fallback="">
-            <NavBar />
-            <div className="content-page">
-                <SideBar />
-                <AppRouter />
-            </div>
-        </Suspense>
-    </div>
-);
+const App = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
+
+    return (
+        <div className={classNames('app', {}, [])}>
+            <Suspense fallback="">
+                <NavBar />
+                <div className="content-page">
+                    <SideBar />
+                    <AppRouter />
+                </div>
+            </Suspense>
+        </div>
+    );
+};
 
 export default App;

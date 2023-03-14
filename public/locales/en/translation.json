@@ -9,6 +9,9 @@
   "Вызвать ошибку": "Throw Error",
   "Переключить": "toggle",
   "Войти": "Enter",
+  "Выйти": "Exit",
   "Введите username": "Enter username",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели некорректный логин или пароль": "Incorrect login and password"
 }
