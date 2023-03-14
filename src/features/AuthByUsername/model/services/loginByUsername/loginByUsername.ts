@@ -13,7 +13,7 @@ enum LoginErrors {
     SERVER_ERROR
 }
 
-export const loginByUserName = createAsyncThunk<User, LoginByUsernameProps>(
+export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
     'login/loginByUsername',
     async (authData, thunkApi) => {
         try {
