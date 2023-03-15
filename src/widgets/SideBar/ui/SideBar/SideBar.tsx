@@ -3,9 +3,9 @@ import { memo, useMemo, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import cls from './Sidebar.module.scss';
+import cls from './SideBar.module.scss';
 import { SideBarItemsList } from '../../model/items';
-import { SideBarItem } from '../SidebarItem/SideBarItem';
+import { SideBarItem } from '../SideBarItem/SideBarItem';
 
 interface SideBarProps {
     className?: string;
