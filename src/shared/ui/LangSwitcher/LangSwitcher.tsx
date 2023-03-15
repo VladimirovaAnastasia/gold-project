@@ -9,6 +9,7 @@ interface LangSwitcherProps {
 }
 
 export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
+    /* i18next-extract-disable-next-line */
     const { t, i18n } = useTranslation('translation');
 
     const onToggle = async () => {
@@ -21,6 +22,7 @@ export const LangSwitcher = memo(({ className, short }: LangSwitcherProps) => {
             theme={ButtonTheme.CLEAR}
             onClick={onToggle}
         >
+            {/* i18next-extract-disable-next-line */}
             {t(short ? 'Короткий язык' : 'Язык')}
         </Button>
     );

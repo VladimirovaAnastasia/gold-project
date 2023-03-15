@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { Dispatch } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
@@ -46,6 +44,7 @@ describe('loginByUsername.test', () => {
         const userValue = { username: '123', id: '1' };
         mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
 
+        // @ts-ignore
         const thunk = new TestAsyncThunk(loginByUsername);
         const result = await thunk.callThunk({ username: '123', password: '123' });
 
@@ -58,6 +57,7 @@ describe('loginByUsername.test', () => {
 
     test('error login', async () => {
         mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
+        // @ts-ignore
         const thunk = new TestAsyncThunk(loginByUsername);
         const result = await thunk.callThunk({ username: '123', password: '123' });
 
