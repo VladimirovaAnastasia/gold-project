@@ -1,6 +1,6 @@
-import {classNames} from 'shared/lib/classNames/classNames';
-import {useTranslation} from 'react-i18next';
-import {DynamicModuleLoader, ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
     getProfileError,
@@ -13,13 +13,13 @@ import {
     profileReducer,
     ValidateProfileError,
 } from 'entities/Profile';
-import {useCallback, useEffect} from 'react';
-import {useAppDispatch} from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import {useSelector} from 'react-redux';
-import {Currency} from 'entities/Currency';
-import {Country} from 'entities/Country';
-import {ProfilePageHeader} from './ProfilePageHeader/ProfilePageHeader';
-import {Text, TextTheme} from "shared/ui/Text/Text";
+import { useCallback, useEffect } from 'react';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -30,7 +30,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
-    const {t} = useTranslation('profile');
+    const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileIsLoading);
@@ -43,11 +43,13 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
-        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст')
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {
