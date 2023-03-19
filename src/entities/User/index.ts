@@ -3,10 +3,13 @@ export {
 } from './model/selectors/getUserAuthData/getUserAuthData';
 
 export {
-    userActions,
-    userReducer,
-} from './model/slice/userSlice';
+    getUserInited,
+} from './model/selectors/getUserInited/getUserInited';
 
+export {
+    userReducer,
+    userActions,
+} from './model/slice/userSlice';
 export {
     UserSchema,
     User,
