@@ -1,12 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+// Компонент для тестирования ErrorBoundary
 export const BugButton = () => {
-    const { t } = useTranslation('translation');
-
     const [error, setError] = useState(false);
+    const { t } = useTranslation();
 
     const onThrow = () => setError(true);
 
@@ -19,10 +18,8 @@ export const BugButton = () => {
     return (
         <Button
             onClick={onThrow}
-            theme={ButtonTheme.CLEAR}
-            className={classNames('', {}, [])}
         >
-            {t('Вызвать ошибку')}
+            {t('throw error')}
         </Button>
     );
 };

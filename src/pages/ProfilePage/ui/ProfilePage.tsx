@@ -10,8 +10,7 @@ import {
     getProfileValidateErrors,
     profileActions,
     ProfileCard,
-    profileReducer,
-    ValidateProfileError,
+    profileReducer, ValidateProfileError,
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -40,9 +39,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
         [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
         [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
-        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
@@ -88,11 +87,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
-                {validateErrors?.length && validateErrors.map((validateError) => (
+                {validateErrors?.length && validateErrors.map((err) => (
                     <Text
-                        key={validateError}
+                        key={err}
                         theme={TextTheme.ERROR}
-                        text={validateErrorTranslates[validateError]}
+                        text={validateErrorTranslates[err]}
                     />
                 ))}
                 <ProfileCard

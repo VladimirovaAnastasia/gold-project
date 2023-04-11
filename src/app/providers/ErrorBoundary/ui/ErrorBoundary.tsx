@@ -1,9 +1,8 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
-// import { withTranslation } from 'react-i18next';
-import { ErrorPage } from 'widgets/ErrorPage';
+import { ErrorPage } from 'widgets/ErrorPage/ui/ErrorPage';
 
 interface ErrorBoundaryProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 interface ErrorBoundaryState {
@@ -32,7 +31,12 @@ class ErrorBoundary
         const { children } = this.props;
 
         if (hasError) {
-            return <Suspense fallback=""><ErrorPage /></Suspense>;
+            // You can render any custom fallback UI
+            return (
+                <Suspense fallback="">
+                    <ErrorPage />
+                </Suspense>
+            );
         }
 
         return children;

@@ -16,13 +16,13 @@ export enum ButtonTheme {
 export enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
-    square?: boolean;
     theme?: ButtonTheme;
+    square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
     children?: ReactNode;
@@ -32,10 +32,10 @@ export const Button = memo((props: ButtonProps) => {
     const {
         className,
         children,
-        square,
-        size = ButtonSize.M,
         theme = ButtonTheme.OUTLINE,
+        square,
         disabled,
+        size = ButtonSize.M,
         ...otherProps
     } = props;
 

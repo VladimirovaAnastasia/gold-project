@@ -4,15 +4,15 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from 'entities/User';
-import cls from './SideBarItem.module.scss';
-import { SideBarItemType } from '../../model/items';
+import cls from './SidebarItem.module.scss';
+import { SidebarItemType } from '../../model/items';
 
-interface SideBarItemProps {
-    item: SideBarItemType;
+interface SidebarItemProps {
+    item: SidebarItemType;
     collapsed: boolean;
 }
 
-export const SideBarItem = memo(({ item, collapsed }: SideBarItemProps) => {
+export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
     /* i18next-extract-disable-next-line */
     const { t } = useTranslation();
     const isAuth = useSelector(getUserAuthData);

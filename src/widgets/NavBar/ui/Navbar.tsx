@@ -7,11 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import cls from './Navbar.module.scss';
 
-interface NavBarProps {
+interface NavbarProps {
     className?: string;
 }
 
-export const NavBar = memo(({ className }: NavBarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
@@ -53,7 +53,10 @@ export const NavBar = memo(({ className }: NavBarProps) => {
                 {t('Войти')}
             </Button>
             {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                />
             )}
         </div>
     );

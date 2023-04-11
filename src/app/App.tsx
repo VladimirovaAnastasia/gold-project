@@ -2,8 +2,8 @@ import React, { Suspense, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from 'app/providers/router';
-import { NavBar } from 'widgets/NavBar';
-import { SideBar } from 'widgets/SideBar';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInited, userActions } from 'entities/User';
 
@@ -19,9 +19,9 @@ function App() {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
-                <NavBar />
+                <Navbar />
                 <div className="content-page">
-                    <SideBar />
+                    <Sidebar />
                     {inited && <AppRouter />}
                 </div>
             </Suspense>
