@@ -13,7 +13,6 @@ interface SidebarItemProps {
 }
 
 export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
-    /* i18next-extract-disable-next-line */
     const { t } = useTranslation();
     const isAuth = useSelector(getUserAuthData);
 
@@ -29,7 +28,6 @@ export const SidebarItem = memo(({ item, collapsed }: SidebarItemProps) => {
         >
             <item.Icon className={cls.icon} />
             <span className={cls.link}>
-                {/* i18next-extract-disable-next-line */}
                 {t(item.text)}
             </span>
         </AppLink>
